@@ -1,5 +1,6 @@
 /**
  * file for handling direction logic
+ * google api - AIzaSyBqiBpLGl_Rf-k8Qesm6qeBfLXAFwPwj5U
 */
 function startDirection(Directions) {
 	var directions = new Directions({
@@ -25,4 +26,10 @@ function startDirection(Directions) {
         });
         //streetArr is a set that holds all the streets en route
     });
+}
+
+function addStopsToRoute(stops, directions) {
+	for (var i = 0; i < stops.length; i++) {
+		directions.addStop(stops[i], 1 + i);
+	}
 }
