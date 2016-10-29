@@ -8,10 +8,7 @@ function startDirection(Directions) {
 	directions.startup();
     directions.on("directions-finish", function(event) {
         var streetArr = new Set();
-        console.log(event);
-        console.log(event.target.directions.strings);
         var strings = event.target.directions.strings;
-        streetArr.add(strings[7][1].string);
         for(var i = 0; i < strings.length; i++)
         {
             if(strings[i] != null) 
@@ -26,5 +23,6 @@ function startDirection(Directions) {
         streetArr.forEach(function(value) {
           console.log(value);
         });
+        //streetArr is a set that holds all the streets en route
     });
 }
