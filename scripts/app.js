@@ -9,5 +9,34 @@ function(Map, parser, urlUtils, Directions, esriId, Geocoder, merUtils) {
 		zoom: 13
 	});
 	var geocoder = startGeocoder(Geocoder);
-	startDirection(Directions, geocoder, merUtils);
+	var directions = startDirection(Directions, geocoder, merUtils);
+
+	function tripPlannerCallback(event) {
+		var stops = directions.stops;
+		var stop_arr = [];
+		console.log(stops);
+		for (var i = 0; i < stops.length; i++) {
+			stop_arr.push([stops[i].name]);
+		}
+		i =0;
+		var x = 0;
+		stop_arr.forEach(function(item){
+			 yelp_search("restaurants", item[0], 1500, function(hotspots){
+				console.log(hotspots);
+				hotspots = JSON.parse(hotspots)[0];
+				if (hotspots){
+					console.log(x+1);
+					directions.addStop([hotspots[2], hotspots[1]], 1+x);
+					x += 1
+				}
+			});
+		});
+	}
+
+	$('#done').click(tripPlannerCallback);
+});
+
+$('#done').click(function(){
+	// turn it into a road trip
+	
 });

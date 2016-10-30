@@ -9,7 +9,7 @@ function startDirection(Directions, geocoder, mercUtils) {
 	},"dir");
 	directions.startup();
     directions.on("directions-finish", function(event) {
-        if(event.target.directions != null) 
+        if(event.target.directions != null)
         {
             var streetArr = new Set();
             var strings = event.target.directions.strings;
@@ -24,13 +24,18 @@ function startDirection(Directions, geocoder, mercUtils) {
 
                 }
             }
+            /*
             streetArr.forEach(function(value) {
               console.log(value);
             });
+            */
         }
         //streetArr is a set that holds all the streets en route
     });
+    return directions;
 }
+
+
 
 function addStopsToRoute(stops, directions) {
 	for (var i = 0; i < stops.length; i++) {

@@ -8,9 +8,9 @@ api = Api(app)
 
 parser = reqparse.RequestParser()
 parser.add_argument("term", type=str)
-parser.add_argument("cll", type=str)
+# parser.add_argument("cll", type=str)
 parser.add_argument("location", type=str)
-parser.add_argument("radius", type=int)
+parser.add_argument("radius_filter", type=int)
 
 consumer_key = 'cxzXjN5ICyU6rC-Ndpmb7Q'
 consumer_secret = '7rxbf_oxTGXwqSww_N-aqSRN1pE'
@@ -33,7 +33,6 @@ class YelpApi(Resource):
                             b.rating] for b in response.businesses]
         res = sorted(res, key=lambda x: x[-1], reverse=True)
         return json.dumps(res)
-
 
 
 @app.route('/')

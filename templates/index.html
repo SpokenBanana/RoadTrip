@@ -12,19 +12,41 @@
     <script src="/scripts/yelp_help.js"></script>
     <script src="/scripts/directions.js"></script>
     <script src="/scripts/app.js"></script>
+    <style>
+        body {
+            background-color: white;
+        }
+        #header {
+            margin: 0;
+            padding: 10px;
+            color: #003d53;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            background-color: #1e81ff;
+            color: white;
+        }
+        #map {
+            box-shadow: 1px 1px 10px 1px black;
+            margin: 5px;
+            height: 500px;
+        }
+    </style>
 </head>
 <body>
-
+<div id="header">
+    <h1>Road Trip Planner</h1>
+</div>
 <div class="claro">
     <div id="map"></div>
 </div>
+<button id="done" style="width:100px; padding: 10px;">Plan roadtrip</button>
 <div id="places"></div>
 <div id="search"></div>
 <div id="dir"></div>
 
 </body>
-
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFFyTKIfXCzxPPIic1CKhZls9hstUFLnY&libraries=places">
-</script>
 </html>
