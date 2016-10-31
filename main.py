@@ -10,6 +10,7 @@ parser = reqparse.RequestParser()
 parser.add_argument("term", type=str)
 # parser.add_argument("cll", type=str)
 parser.add_argument("location", type=str)
+parser.add_argument("limit", type=str)
 parser.add_argument("radius_filter", type=int)
 
 consumer_key = 'cxzXjN5ICyU6rC-Ndpmb7Q'

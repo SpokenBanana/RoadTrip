@@ -21,7 +21,7 @@ function(Map, parser, urlUtils, Directions, esriId, Geocoder, merUtils) {
 		i =0;
 		var x = 0;
 		stop_arr.forEach(function(item){
-			 yelp_search("restaurants", item[0], 1500, function(hotspots){
+			 yelp_search("attractions", item[0], 2500, function(hotspots){
 				console.log(hotspots);
 				hotspots = JSON.parse(hotspots)[0];
 				if (hotspots){
